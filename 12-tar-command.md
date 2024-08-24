@@ -1,22 +1,93 @@
+# TAR
+
+Create Files
+
+```sh
 touch file1 file2 file3
+```
+
+Create a Tar Archive
+
+```sh
 tar -cf archive.tar file1 file2 file3
-#tar -cf archive.tar file*
+```
+
+List Files in Directory
+
+```sh
 ls -ltrh
+```
+
+List Contents of Tar Archive
+
+```sh
 tar -tf archive.tar
+```
+
+Check Directory Size
+
+```sh
 du -sh /etc/
+```
+
+Create Tar Archive of a Directory
+
+```sh
 tar -cf etc.tar /etc/
+```
+
+List Files After Creating Tar Archive
+
+```sh
 ls -ltrh
+```
+
+Create a Gzipped Tar Archive
+
+```sh
 tar -czvf etc.tar.gz /etc/
+```
+
+Check Directory Size After Compression
+
+```sh
 du -sh /etc/
-ls -ltrh
+```
+
+Create a Bzipped Tar Archive
+
+```sh
 tar -cjvf etc.tar.bz2 /etc/
-tar -xvf etc.tar
+
 ls -ltrh
-tar -xvf etc.tar.gz
+```
+
+Extract Tar Archive
+
+```sh
+tar -xvf etc.tar
+
 du -sh /etc/
-du -sh etc
+
 rm -rf etc
+```
+
+Extract Bzipped Tar Archive
+
+```sh
 tar -xvf etc.tar.bz2
-tar -xvf etc.tar.bz2 -c /opt/
+```
+
+Extract Bzipped Tar Archive to Specific Directory
+
+```sh
+tar -xvf etc.tar.bz2 -C /opt/
+```
+
+Check Size of Extracted Directory in New Location
+
+```sh
 du -sh /opt/etc
+
 rm -rf /opt/etc
+```
