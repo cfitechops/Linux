@@ -63,7 +63,7 @@ ip link set dev br0 up
 
 ```sh
 # Ping from ns1 to ns2
-ip netns exec ns1 ping <IP>
+ip netns exec ns1 ping 192.168.129.2
 ```
 
 ### Bridge and Forwarding Database (FDB)
