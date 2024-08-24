@@ -1,25 +1,81 @@
-yum install httpd -y
-systemctl start httpd.service
-systemctl enable httpd.service
-systemctl status httpd.service
+# Apache HTTP server on a Linux system
 
-netstat -tulpn | grep -i listen
-
-curl localhost
-
-http://192.168.129.2
-
-syetemctl status firewalld
-firewall-cmd --list-all
-firewall-cmd --permanent --add-port=80/tcp
-firewall-cmd --reload
-
-vi /var/www/html/index.html
+Install Apache HTTP Server
 
 ```sh
+yum install httpd -y
+```
+
+Start Apache HTTP Server
+
+```sh
+systemctl start httpd.service
+```
+
+Enable Apache to Start on Boot
+
+```sh
+systemctl enable httpd.service
+```
+
+Check the Status of Apache HTTP Server
+
+```sh
+systemctl status httpd.service
+```
+
+Check Listening Ports
+
+```sh
+netstat -tulpn | grep -i listen
+```
+
+Verify Apache is Serving Content
+
+```sh
+curl localhost
+```
+
+Access Apache from a Specific IP
+
+```sh
+http://<IP>
+```
+
+Check Firewalld Status
+
+```sh
+systemctl status firewalld
+```
+
+List All Firewall Rules
+
+```sh
+firewall-cmd --list-all
+```
+
+Open Port 80 in Firewall
+
+```sh
+firewall-cmd --permanent --add-port=80/tcp
+```
+
+Reload Firewall Rules
+
+```sh
+firewall-cmd --reload
+```
+
+Create a Custom Web Page
+
+```sh
+# vi /var/www/html/index.html
+
 Hello this is website deployed by cfitech Apache web server!!!
 ```
 
-vi /etc/httpd/conf/httpd.conf
+Configure Apache DocumentRoot
 
-# search DocumentRoot
+```sh
+vi /etc/httpd/conf/httpd.conf
+```
