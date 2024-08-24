@@ -1,43 +1,53 @@
-# curl
+# Downloading and Extracting Apache Tomcat
 
-curl -O https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.47/bin/apache-tomcat-7.0.47.tar.gz /opt/
-ls -ltr
-tar -xvf apache-tomcat-7.0.47.tar.gz -C /opt/
-cd /opt/apache-tomcat-7.0.47/bin/
-ls -ltr
-sh catalina.sh start
-
-curl localhost:8080
-
-# find
-
-find / -name "secure" -type f
-find / -name "log" -type d
-
-mkdir /var/log/mylogs
-touch /var/log/mylogs/mylog{1..5}.log
-ls -ltr /var/log/mylogs/
-touch /var/log/mylogs/file.txt
-
-find /var/log/mylogs -type f -name "*.log"
-find /var/log/mylogs -type f -name "*.txt"
-find /var/log/mylogs -type f -name "*.txt" -exec rm -f {} \;
-find /var/log/mylogs -type f -name "*.txt"
-find /var/log/mylogs -type f -name "*.log" -exec rm -f {} \;
-
-wget https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.47/bin/apache-tomcat-7.0.47.tar.gz --no-check-certificate -P /opt/ 
-
-ls -ltr
-find /opt/ -type f -size +5M 
-find /opt/ -type f -size +5M -exec rm -f {} \;
-ls -ltr
-
-# sed 
-
-vi sample.txt
+**curl**
 
 ```sh
-unix is free os\
+curl -O https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.47/bin/apache-tomcat-7.0.47.tar.gz
+tar -xvf apache-tomcat-7.0.47.tar.gz -C /opt/
+cd /opt/apache-tomcat-7.0.47/bin/
+sh catalina.sh start
+```
+
+Check Tomcat Status
+
+```sh
+curl localhost:8080
+```
+
+**find**
+
+Find Files and Directories
+
+```sh
+find / -name "secure" -type f  # for files
+
+find / -name "log" -type d   # for directories
+```
+
+Create Logs and Files
+
+```sh
+mkdir /var/log/mylogs
+touch /var/log/mylogs/mylog{1..5}.log
+```
+
+Find and Remove Files
+
+```sh
+find /var/log/mylogs -type f -name "*.log"
+find /var/log/mylogs -type f -name "*.txt" -exec rm -f {} \;
+find /var/log/mylogs -type f -name "*.log" -exec rm -f {} \;
+```
+
+**sed**
+
+Edit Files with sed
+
+```sh
+# vi sample.txt
+
+unix is free os
 unix is greate os
 Hi
 hello
@@ -45,34 +55,52 @@ how
 are you
 guyz
 ```
+
+```sh
 sed -e 's/unix/linux/' sample.txt
-cat sample.txt
+
+# Replaces the first occurrence of unix with linux in sample.txt
 sed '1d' sample.txt
-cat sample.txt
+
+# Deletes the first line
 sed '$d' sample.txt
-cat sample.txt
+
+# Deletes the last line
 sed '1,3d' sample.txt
-cat sample.txt
+
+# Deletes lines 1 through 3
 sed -n '2,4p' sample.txt
-cat sample.txt
+
+# Prints lines 2 through 4
 sed -i 's/unix/linux/' sample.txt
-cat sample.txt
+
+# In-place replacement of unix with linux
 sed -e 's/free/paid/' -e 's/greate/bad/' sample.txt
-cat sample.txt
-sed -i -e 's/free/paid/' -e 's/greate/bad/' sample.txt
-cat sample.txt
+```
 
-# grep
+**grep**
 
-cat /etc/passwd | grep thierno
+Searching with grep
 
-# nslookup
+```sh
+cat /etc/passwd | grep <USER>
+```
 
-netstat -tulpn | grep -i listen
+**nslookup**
 
-# dig
-
-dig google.com
-dig facebook.com
+```sh
 nslookup google.com
+```
 
+**dig**
+
+```sh
+dig google.com
+```
+
+Check Listening Ports:
+
+```sh
+# Lists all listening ports and services
+netstat -tulpn | grep -i listen
+```
