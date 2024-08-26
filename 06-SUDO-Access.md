@@ -11,10 +11,10 @@ Switch to the new user
 su - cfitech
 ```
 
-Install vsftpd (this will fail since cfitech is not yet a sudoer)
+Install git (this will fail since cfitech is not yet a /etc/sudoers or visudo)
 
 ```sh
-yum install vsftpd -y
+yum install git -y
 ```
 
 Exit back to the root user
