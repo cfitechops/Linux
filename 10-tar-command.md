@@ -1,5 +1,20 @@
 # TAR
 
+```sh
+-c > to create tar ball
+-f > to create tar ball of file/directory
+-v > to show the progress of tarball
+-z > to create gz file
+-j > to create bz2 tar file
+-x > to extract/uncompress tar ball
+
+# Types of Files
+
+1. .tar >
+2. .tar.gz >
+3. .tar.bz2 >
+```
+
 Create Files
 
 ```sh
